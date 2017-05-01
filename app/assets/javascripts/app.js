@@ -8,15 +8,9 @@ app.factory('posts', [function() {
   return o;
 }]);
 
-app.controller('mainCtrl', ['$scope', function($scope) {
+app.controller('mainCtrl', ['$scope', 'posts', function($scope, posts) {
   $scope.test = "Hello world";
-  $scope.posts = [
-    {title:'post1', upvotes: 2},
-    {title:'post2', upvotes: 8},
-    {title:'post3', upvotes: 5},
-    {title:'post4', upvotes: 12},
-    {title:'post5', upvotes: 9}
-  ];
+  $scope.posts = posts.posts;
 
   $scope.addPost = function() {
     if(!$scope.title || $scope.title === '') {
