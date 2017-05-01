@@ -10,7 +10,12 @@ app.config([
       url: '/home',
       templateUrl: '/home.html',
       controller: 'mainCtrl'
-    });
+    })
+      .state('posts', {
+        url: '/posts/{id}',
+        templateUrl: '/posts.html',
+        controller: 'postsCtrl'
+      });
 
     $urlRouterProvider.otherwise('home');
   }]);
@@ -21,6 +26,14 @@ app.factory('posts', [function() {
   };
   return o;
 }]);
+
+app.controller('postsCtrl', [
+  '$scope',
+  '$stateParams',
+  'posts',
+  function($scope, $stateParams, posts) {
+
+  }]);
 
 app.controller('mainCtrl', ['$scope', 'posts', function($scope, posts) {
   $scope.test = "Hello world";
