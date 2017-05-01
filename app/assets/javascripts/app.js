@@ -1,5 +1,5 @@
 /* global angular */
-var app = angular.module('redditesque', []);
+var app = angular.module('redditesque', ['ui.router']);
 
 app.factory('posts', [function() {
   var o = {
