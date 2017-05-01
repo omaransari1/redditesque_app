@@ -1,5 +1,14 @@
 /* global angular */
-angular.module('redditesque', []).controller('mainCtrl', ['$scope', function($scope) {
+var app = angular.module('redditesque', []);
+
+app.factory('posts', [function() {
+  var o = {
+    posts: []
+  };
+  return o;
+}]);
+
+app.controller('mainCtrl', ['$scope', function($scope) {
   $scope.test = "Hello world";
   $scope.posts = [
     {title:'post1', upvotes: 2},
