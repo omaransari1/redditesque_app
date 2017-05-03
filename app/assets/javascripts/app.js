@@ -1,5 +1,5 @@
 /* global angular */
-var app = angular.module('redditesque', ['ui.router']);
+var app = angular.module('redditesque', ['ui.router','templates']);
 
 app.config([
   '$stateProvider',
