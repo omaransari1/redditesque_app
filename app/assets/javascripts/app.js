@@ -33,6 +33,18 @@ app.controller('postsCtrl', [
   'posts',
   function($scope, $stateParams, posts) {
     $scope.post = posts.posts[$stateParams.id];
+
+    $scope.addComment = function() {
+      if ($scope.body === '') {
+        return;
+      }
+      $scope.post.body.push({
+        body: $scope.body,
+        author: 'user',
+        upvotes: 0
+      });
+      $scope.body = '';
+    };
   }]);
 
 app.controller('mainCtrl', ['$scope', 'posts', function($scope, posts) {
