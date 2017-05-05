@@ -8,5 +8,10 @@ app.factory('posts', ['$http',function($http) {
       angular.copy(data, o.posts);
     });
   };
-  return o;
+
+  resolve: {
+    postPromise: ['posts', function(posts) {
+      return posts.getAll();
+    }];
+  }
 }]);
