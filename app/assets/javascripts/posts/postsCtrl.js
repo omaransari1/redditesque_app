@@ -1,18 +1,19 @@
 app.controller('postsCtrl', [
   '$scope',
-  '$stateParams',
   'posts',
-  function($scope, $stateParams, posts) {
-    $scope.post = posts.posts[$stateParams.id];
+  'post',
+  function($scope, posts, post) {
+    $scope.post = post;
 
     $scope.addComment = function() {
       if ($scope.body === '') {
         return;
       }
-      $scope.post.body.push({
+      posts.addComment(post.id,{
         body: $scope.body,
         author: 'user',
-        upvotes: 0
+      }).success(function(comment) {
+        $scope.post.comment.push(comment);
       });
       $scope.body = '';
     };

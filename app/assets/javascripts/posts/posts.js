@@ -33,5 +33,15 @@ app.factory('posts', ['$http',function($http) {
       return res.data;
     });
   };
-  
+
+  resolve: {
+    post: ['$stateParams', 'posts', function($stateParams, posts) {
+      return posts.get($stateParams.id);
+    }]
+  }
+
+  o.addComment = function(id, comment) {
+    return $http.post('/posts/' + id + '/comments.json', comment);
+  };
+
 }]);
