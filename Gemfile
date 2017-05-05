@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'angular_rails_csrf'
+
 gem 'responders'
 
 #Use angular-rails-templates to have angular compile html templates
