@@ -14,4 +14,10 @@ app.factory('posts', ['$http',function($http) {
       return posts.getAll();
     }];
   }
+
+  o.create = function(post) {
+    return $http.get('/posts.json', post).success(function(data) {
+      o.posts.push(data);
+    });
+  };
 }]);
