@@ -17,4 +17,8 @@ app.controller('postsCtrl', [
       });
       $scope.body = '';
     };
+
+    $scope.incrementUpvotes = function(comment) {
+      posts.upvoteComment(post, comment);
+    };
   }]);
