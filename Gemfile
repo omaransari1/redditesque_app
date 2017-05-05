@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'responders'
+
 #Use angular-rails-templates to have angular compile html templates
 gem 'angular-rails-templates'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
