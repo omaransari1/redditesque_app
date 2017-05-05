@@ -9,11 +9,6 @@ app.factory('posts', ['$http',function($http) {
     });
   };
 
-  resolve: {
-    postPromise: ['posts', function(posts) {
-      return posts.getAll();
-    }];
-  }
 
   o.create = function(post) {
     return $http.get('/posts.json', post).success(function(data) {
@@ -33,12 +28,6 @@ app.factory('posts', ['$http',function($http) {
       return res.data;
     });
   };
-
-  resolve: {
-    post: ['$stateParams', 'posts', function($stateParams, posts) {
-      return posts.get($stateParams.id);
-    }]
-  }
 
   o.addComment = function(id, comment) {
     return $http.post('/posts/' + id + '/comments.json', comment);

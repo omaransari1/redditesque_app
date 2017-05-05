@@ -1,5 +1,5 @@
 /* global angular */
-var app = angular.module('redditesque', ['ui.router','templates']);
+var app = angular.module('redditesque', ['ui.router','templates', 'Devise']);
 
 app.config([
   '$stateProvider',
@@ -9,12 +9,22 @@ app.config([
     $stateProvider.state('home', {
       url: '/home',
       templateUrl: 'home/_home.html',
-      controller: 'mainCtrl'
+      controller: 'mainCtrl',
+      resolve: {
+        postPromise: ['posts', function(posts) {
+          return posts.getAll();
+        }]
+      }
     })
       .state('posts', {
         url: '/posts/{id}',
         templateUrl: 'posts/_posts.html',
-        controller: 'postsCtrl'
+        controller: 'postsCtrl',
+        resolve: {
+          post: ['$stateParams', 'posts', function($stateParams, posts) {
+            return posts.get($stateParams.id);
+          }]
+        }
       });
 
     $urlRouterProvider.otherwise('home');
