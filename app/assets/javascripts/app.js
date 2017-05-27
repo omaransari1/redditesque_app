@@ -25,7 +25,8 @@ app.config([
             return posts.get($stateParams.id);
           }]
         }
-      });
+      })
+      .state('')
 
     $urlRouterProvider.otherwise('home');
   }]);
