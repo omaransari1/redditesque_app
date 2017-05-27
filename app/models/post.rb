@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  belongs_to :user
   has_many :comments
 
   #overrides as_json rails method so that post will include comments
