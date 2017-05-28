@@ -1,4 +1,4 @@
-app.controller('mainCtrl', ['$scope', 'posts', function($scope, posts) {
+app.controller('MainCtrl', ['$scope', 'posts', function($scope, posts) {
   $scope.test = "Hello world";
   $scope.posts = posts.posts;
 

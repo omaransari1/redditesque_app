@@ -14,6 +14,7 @@
           <a ng-show="post.link" href="{{post.link}}">{{post.title}}</a>
           <span ng-hide="post.link" > {{post.title}}</span>
         </span>
+        posted by <a ng-href="#/users/{{post.user.username}}">{{post.user.username}}</a>
       </div>
       <form ng-submit="addPost" style="margin-top:30px;">
         <h3>Add a New Post</h3>

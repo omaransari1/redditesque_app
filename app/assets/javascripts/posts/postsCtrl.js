@@ -1,4 +1,4 @@
-app.controller('postsCtrl', [
+app.controller('PostsCtrl', [
   '$scope',
   'posts',
   'post',

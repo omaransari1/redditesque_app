@@ -9,7 +9,7 @@ app.config([
     $stateProvider.state('home', {
       url: '/home',
       templateUrl: 'home/_home.html',
-      controller: 'mainCtrl',
+      controller: 'MainCtrl',
       resolve: {
         postPromise: ['posts', function(posts) {
           return posts.getAll();
@@ -19,7 +19,7 @@ app.config([
       .state('posts', {
         url: '/posts/{id}',
         templateUrl: 'posts/_posts.html',
-        controller: 'postsCtrl',
+        controller: 'PostsCtrl',
         resolve: {
           post: ['$stateParams', 'posts', function($stateParams, posts) {
             return posts.get($stateParams.id);
